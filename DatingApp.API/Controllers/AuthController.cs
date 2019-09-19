@@ -57,7 +57,7 @@ namespace DatingApp.API.Controllers
             var user = await _repository.Login(loginUserDto.Username.ToLower(), loginUserDto.Password);
 
             if (user == null)
-            {
+            {    
                 return Unauthorized();
             }
 
