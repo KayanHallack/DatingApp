@@ -11,6 +11,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LikesComponent } from './components/likes/likes.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { MatchesComponent } from './components/matches/matches.component';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { RegisterComponent } from './components/register/register.component';
       AppComponent,
       NavbarComponent,
       HomeComponent,
-      RegisterComponent
+      RegisterComponent,
+      LikesComponent,
+      MessagesComponent,
+      MatchesComponent
    ],
    imports: [
       BrowserModule,
