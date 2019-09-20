@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { take, map } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+import { AlertifyService } from './alertify.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +12,20 @@ import { take, map } from 'rxjs/operators';
 export class AuthService {
 
   baseUrl = 'http://localhost:5000/api/auth';
+  jwtHelper = new JwtHelperService();
+  decodedToken: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private alertify: AlertifyService
+    ) { }
 
   login(model: any) {
     return this.http.post(`${this.baseUrl}/login`, model)
       .pipe(take(1), map((response: any) => {
         if (response) {
           localStorage.setItem('token', response.token);
+          this.decodedToken = this.jwtHelper.decodeToken(response.token);          
         }
       }));
   }
@@ -28,11 +37,11 @@ export class AuthService {
 
   loggedIn() {
     const token = localStorage.getItem('token');
-    return !!token;
+    return !this.jwtHelper.isTokenExpired(token);
   }
 
   logout() {
     localStorage.clear();
-    console.info('Logged out');
+    this.alertify.message("Logged out");
   }
 }
