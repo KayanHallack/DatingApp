@@ -4,3 +4,64 @@
 @import "../node_modules/font-awesome/css/font-awesome.min.css";
 @import "../node_modules/alertifyjs/build/css/alertify.min.css";
 @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
+
+/*
+Snippet for styles.css to style the tabs component
+*/
+
+.tab-panel {
+  border: 1px solid #00bc8c;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.matches-tabset > .nav-tabs {
+  justify-content: space-between;
+}
+
+.nav-tabs > li.open,
+.matches-tabset > .nav-tabs > li:hover {
+  border-bottom: 4px solid #00bc8c;
+}
+
+.matches-tabset > .nav-tabs > li.open > a,
+.matches-tabset > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+}
+
+.nav-tabs > li.open > a > i,
+.matches-tabset > .nav-tabs > li:hover > a > i {
+  color: #00bc8c;
+}
+
+.matches-tabset > .nav-tabs > li.open .dropdown-menu,
+.matches-tabset > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+
+.matches-tabset > .nav-tabs > li.active {
+  border-bottom: 4px solid #00bc8c;
+  position: relative;
+}
+
+.matches-tabset > .nav-tabs > li.active > a {
+  border: 0 !important;
+  color: #00bc8c !important;
+}
+
+.matches-tabset > .nav-tabs > li.active > a > i {
+  color: #00bc8c;
+}
+
+.matches-tabset > .tab-content {
+  margin-top: 5px;
+  margin-bottom: -10px;
+  border: 0;
+  padding: 15px 0;
+}
+
+// .matches-tabset > .tab-content > .photo {
+//   display: flex;
+//   justify-content: center;
+// }

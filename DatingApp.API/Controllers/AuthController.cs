@@ -37,7 +37,7 @@ namespace DatingApp.API.Controllers
 
             if (await _repository.UserExists(newUserDto.Username))
             {
-                return BadRequest("Username already in use");
+                return BadRequest("Username already in use.");
             }
 
             var newUser = new User
